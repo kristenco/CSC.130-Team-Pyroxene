@@ -21,8 +21,11 @@ class Courses:
         pass
 
     def remove_course(self):
-        course_input = input('Enter the course you\'d like to remove: ').upper()
-        if course_input not in self.courses.keys():
+        course_input = input('Enter the course you\'d like to remove or enter "All" to remove all: ').upper()
+        if course_input == 'ALL':
+            self.courses = {}
+            print('All courses deleted.')
+        elif course_input not in self.courses.keys() and course_input != 'ALL':
             print('That course does not exist.')
         else:
             del self.courses[course_input]
