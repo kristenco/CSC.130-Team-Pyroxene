@@ -29,7 +29,7 @@ class Courses:
         if course_input == 'ALL':
             self.courses.clear()
             print('All courses deleted.')
-        elif course_input not in self.courses.keys() and course_input != 'ALL':
+        elif course_input not in self.courses and course_input != 'ALL':
             print('That course does not exist.')
         else:
             self.courses.remove(f'{course_input}')
