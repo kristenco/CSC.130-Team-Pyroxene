@@ -10,11 +10,15 @@
 
 class Courses:
     def __init__(self):
-        self.courses = {}
+        self.courses = []
 
     def add_course(self):
-        # TODO
-        pass
+        course_input = (input('Enter the course you\'d like to add: ')).upper()
+        if course_input in self.courses:
+            print('Class already exists.')
+        else:
+            self.courses.append(course_input)
+            print(f'Course {course_input} was added.')
 
     def wait_list_student(self):
         # TODO
@@ -23,12 +27,12 @@ class Courses:
     def remove_course(self):
         course_input = input('Enter the course you\'d like to remove or enter "All" to remove all: ').upper()
         if course_input == 'ALL':
-            self.courses = {}
+            self.courses.clear()
             print('All courses deleted.')
         elif course_input not in self.courses.keys() and course_input != 'ALL':
             print('That course does not exist.')
         else:
-            del self.courses[course_input]
+            self.courses.remove(f'{course_input}')
             print(f'Course {course_input} was removed.')
 
     def list_courses(self):
